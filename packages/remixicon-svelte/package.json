@@ -1,7 +1,7 @@
 {
 	"name": "remixicon-svelte",
 	"description": "RemixIcon for Svelte",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"keywords": [
 		"svelte, remixicon"
 	],
