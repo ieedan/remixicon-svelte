@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const CornerUpLeftDoubleLine: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type CornerUpLeftDoubleLine = ReturnType<typeof CornerUpLeftDoubleLine>;
-export default CornerUpLeftDoubleLine;

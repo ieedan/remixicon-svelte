@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const LayoutHorizontalFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type LayoutHorizontalFill = ReturnType<typeof LayoutHorizontalFill>;
-export default LayoutHorizontalFill;

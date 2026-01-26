@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const ClosedCaptioningAiFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type ClosedCaptioningAiFill = ReturnType<typeof ClosedCaptioningAiFill>;
-export default ClosedCaptioningAiFill;
