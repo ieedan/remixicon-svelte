@@ -19,5 +19,8 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
+            - name: Prepack
+              run: pnpm prepack
+
             - name: Check Types
               run: pnpm check
