@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const DashboardHorizontalFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type DashboardHorizontalFill = ReturnType<typeof DashboardHorizontalFill>;
-export default DashboardHorizontalFill;

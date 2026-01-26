@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const ExpandHorizontalSFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type ExpandHorizontalSFill = ReturnType<typeof ExpandHorizontalSFill>;
-export default ExpandHorizontalSFill;

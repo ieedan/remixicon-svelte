@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const VolumeOffVibrateLine: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type VolumeOffVibrateLine = ReturnType<typeof VolumeOffVibrateLine>;
-export default VolumeOffVibrateLine;

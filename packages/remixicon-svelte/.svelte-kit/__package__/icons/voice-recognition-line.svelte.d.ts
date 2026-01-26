@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const VoiceRecognitionLine: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type VoiceRecognitionLine = ReturnType<typeof VoiceRecognitionLine>;
-export default VoiceRecognitionLine;

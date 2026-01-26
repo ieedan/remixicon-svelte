@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const AlignItemHorizontalCenterLine: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type AlignItemHorizontalCenterLine = ReturnType<typeof AlignItemHorizontalCenterLine>;
-export default AlignItemHorizontalCenterLine;

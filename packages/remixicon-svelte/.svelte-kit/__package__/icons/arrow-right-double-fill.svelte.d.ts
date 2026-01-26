@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const ArrowRightDoubleFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type ArrowRightDoubleFill = ReturnType<typeof ArrowRightDoubleFill>;
-export default ArrowRightDoubleFill;

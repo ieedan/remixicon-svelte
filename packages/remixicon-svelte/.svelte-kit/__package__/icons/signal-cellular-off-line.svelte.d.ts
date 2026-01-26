@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const SignalCellularOffLine: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type SignalCellularOffLine = ReturnType<typeof SignalCellularOffLine>;
-export default SignalCellularOffLine;

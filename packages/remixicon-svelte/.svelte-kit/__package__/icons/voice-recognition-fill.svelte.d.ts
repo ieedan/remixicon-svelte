@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const VoiceRecognitionFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type VoiceRecognitionFill = ReturnType<typeof VoiceRecognitionFill>;
-export default VoiceRecognitionFill;

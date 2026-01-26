@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const PlayReverseLargeFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type PlayReverseLargeFill = ReturnType<typeof PlayReverseLargeFill>;
-export default PlayReverseLargeFill;

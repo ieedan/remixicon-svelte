@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const MoneyRupeeCircleFill: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type MoneyRupeeCircleFill = ReturnType<typeof MoneyRupeeCircleFill>;
-export default MoneyRupeeCircleFill;

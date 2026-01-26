@@ -1,8 +1,0 @@
-import type { SVGAttributes } from 'svelte/elements';
-declare const GitRepositoryCommitsLine: import('svelte').Component<
-	SVGAttributes<SVGSVGElement>,
-	{},
-	''
->;
-type GitRepositoryCommitsLine = ReturnType<typeof GitRepositoryCommitsLine>;
-export default GitRepositoryCommitsLine;
