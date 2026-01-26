@@ -11,8 +11,8 @@ async function main() {
 	let indexContent = '';
 
 	// clean icons directory
-	fs.rmSync('src/lib/icons', { recursive: true, force: true });
-	fs.mkdirSync('src/lib/icons', { recursive: true });
+	fs.rmSync('packages/remixicon-svelte/src/lib/icons', { recursive: true, force: true });
+	fs.mkdirSync('packages/remixicon-svelte/src/lib/icons', { recursive: true });
 
 	for (const [iconName, { path }] of Object.entries(icons)) {
 		const pascalCaseName = `Ri${toPascalCase(iconName)}`;
@@ -21,12 +21,12 @@ async function main() {
 
         const iconPath = `icons/${iconName}.svelte`;
 
-		fs.writeFileSync(`src/lib/${iconPath}`, component);
+		fs.writeFileSync(`packages/remixicon-svelte/src/lib/${iconPath}`, component);
 
 		indexContent += `export { default as ${pascalCaseName} } from './${iconPath}';\n`;
 	}
 
-	fs.writeFileSync('src/lib/index.ts', indexContent);
+	fs.writeFileSync('packages/remixicon-svelte/src/lib/index.ts', indexContent);
 
 	console.log('Icons built successfully');
 
@@ -85,7 +85,7 @@ async function formatIcons(): Promise<void> {
 	};
 
 	return new Promise<void>((resolve, reject) => {
-		const child = spawn('prettier', ['--write', 'src/lib/**/*'], {
+		const child = spawn('prettier', ['--write', 'packages/remixicon-svelte/src/lib/**/*'], {
 			stdio: 'pipe',
 			shell: true
 		});
@@ -99,7 +99,7 @@ async function formatIcons(): Promise<void> {
 			const lastLine = lines[lines.length - 2] || lines[lines.length - 1] || '';
 			const trimmed = lastLine.trim();
 
-			if (trimmed.includes('src/lib/icons/')) {
+			if (trimmed.includes('packages/remixicon-svelte/src/lib/icons/')) {
 				const fileName = trimmed.split('/').pop()?.split(/\s+/)[0] || '';
 				if (fileName && fileName.endsWith('.svelte')) {
 					writeLine(pc.dim(`Formatting ${fileName}...`));
