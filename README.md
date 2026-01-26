@@ -1,3 +1,5 @@
+<img src="./docs/static/og.png" alt="remixicon-svelte logo" />
+
 # remixicon-svelte
 
 [![npm version](https://flat.badgen.net/npm/v/remixicon-svelte)](https://npmjs.com/package/remixicon-svelte)

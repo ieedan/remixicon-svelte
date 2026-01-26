@@ -4,11 +4,14 @@
 	import { ToggleGroup } from 'bits-ui';
     import { scale } from 'svelte/transition';
 	import { PersistedState } from 'runed';
+	import { MetaTags } from 'svelte-meta-tags';
 
 	const clipboard = new UseClipboard();
 
 	let iconStyle = new PersistedState('iconStyle', 'line');
 </script>
+
+<MetaTags title="remixicon-svelte" description="RemixIcon for Svelte." />
 
 <main class="h-dvh flex flex-col gap-4 px-4 items-center justify-center">
 	<div class="fixed top-2 right-2">
