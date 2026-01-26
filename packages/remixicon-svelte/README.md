@@ -1,4 +1,4 @@
-<img src="../../docs/static/og.png" alt="remixicon-svelte logo" />
+<img width="100%" alt="CleanShot 2026-01-26 at 10 28 19" src="https://github.com/user-attachments/assets/1333e669-45a7-4840-9aaa-109fb7932eb5" />
 
 # remixicon-svelte
 
