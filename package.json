@@ -12,12 +12,14 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"ci:release": "pnpm build && changeset publish",
-		"postinstall": "pnpm build:packages"
+		"postinstall": "pnpm build:packages",
+		"check-icon-updates": "tsx scripts/check-icon-updates.ts",
+		"process-icon-updates": "tsx scripts/process-icon-updates.ts"
 	},
 	"devDependencies": {
+		"@changesets/cli": "^2.29.8",
 		"@eslint/compat": "^2.0.1",
 		"@eslint/js": "^9.39.2",
-		"@changesets/cli": "^2.29.8",
 		"@svitejs/changesets-changelog-github-compact": "^1.2.0",
 		"@types/node": "^22.19.7",
 		"eslint": "^9.39.2",

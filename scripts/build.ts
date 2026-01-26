@@ -1,12 +1,10 @@
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import pc from 'picocolors';
+import { Icons } from './types';
 
-const ICONS_URL =
-	'https://raw.githubusercontent.com/Remix-Design/RemixIcon/master/fonts/remixicon.glyph.json';
-
-async function main() {
-	const icons = await downloadIcons();
+export async function buildIcons(icons: Icons) {
+	console.log('Building icons...');
 
 	let indexContent = '';
 
@@ -14,7 +12,7 @@ async function main() {
 	fs.rmSync('packages/remixicon-svelte/src/lib/icons', { recursive: true, force: true });
 	fs.mkdirSync('packages/remixicon-svelte/src/lib/icons', { recursive: true });
 
-	for (const [iconName, { path }] of Object.entries(icons)) {
+	for (const [iconName, { path }] of Object.entries(icons as Icons)) {
 		const pascalCaseName = `Ri${toPascalCase(iconName)}`;
 
 		const component = createIconComponent(iconName, path);
@@ -32,14 +30,6 @@ async function main() {
 
 	await formatIcons();
 }
-
-main();
-
-type Icon = {
-	path: string[];
-};
-
-type Icons = Record<string, Icon>;
 
 function createIconComponent(iconName: string, path: string[]): string {
 	return `<script lang="ts">
@@ -60,22 +50,6 @@ function toPascalCase(str: string): string {
 		.join('');
 }
 
-async function downloadIcons(): Promise<Icons> {
-	const response = await fetch(ICONS_URL, {
-		headers: process.env.GITHUB_TOKEN
-			? {
-					Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
-				}
-			: undefined
-	});
-
-	if (!response.ok) {
-		throw new Error(`Failed to download icons: ${response.status}`);
-	}
-
-	return await response.json();
-}
-
 async function formatIcons(): Promise<void> {
 	const writeLine = (message: string) => {
 		// Clear the line and write new message, padding with spaces to clear any leftover chars
@@ -85,7 +59,7 @@ async function formatIcons(): Promise<void> {
 	};
 
 	return new Promise<void>((resolve, reject) => {
-		const child = spawn('prettier', ['--write', 'packages/remixicon-svelte/src/lib/**/*'], {
+		const child = spawn('pnpm', ['prettier', '--write', 'packages/remixicon-svelte/src/lib/**/*'], {
 			stdio: 'pipe',
 			shell: true
 		});
