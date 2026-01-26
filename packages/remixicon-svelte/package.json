@@ -19,7 +19,7 @@
 	},
 	"scripts": {
 		"dev": "pnpm watch",
-		"build": "pnpm package",
+		"build": "pnpm prepack",
 		"prepare": "svelte-kit sync || echo ''",
 		"prepack": "svelte-kit sync && svelte-package && publint",
 		"watch": "svelte-package --watch"
