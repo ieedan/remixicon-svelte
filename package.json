@@ -12,7 +12,6 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"ci:release": "pnpm build && changeset publish",
-		"postinstall": "pnpm build:packages",
 		"check-icon-updates": "tsx scripts/check-icon-updates.ts",
 		"process-icon-updates": "tsx scripts/process-icon-updates.ts"
 	},

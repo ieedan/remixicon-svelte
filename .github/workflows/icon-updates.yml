@@ -39,7 +39,7 @@ jobs:
         id: check-updates
         run: |
           # Run the update check script
-          tsx scripts/prepare-icon-updates.ts
+          pnpm tsx scripts/prepare-icon-updates.ts
 
           # Check if there are changes by looking at git status
           if [ -n "$(git status --porcelain)" ]; then
