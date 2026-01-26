@@ -1,0 +1,66 @@
+name: Icon Updates
+
+on:
+  schedule:
+    # Run daily at 16:00 UTC (midnight China time, UTC+8)
+    - cron: '0 16 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+concurrency:
+  group: icon-updates
+  cancel-in-progress: false
+
+jobs:
+  check-and-update:
+    permissions:
+      contents: write # to commit changes
+      pull-requests: write # to create PRs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for changesets
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check for icon updates
+        id: check-updates
+        run: |
+          # Run the update check script
+          tsx scripts/prepare-icon-updates.ts
+
+          # Check if there are changes by looking at git status
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            # Generate unique branch name
+            BRANCH_NAME="icon-updates-$(date +%s)-$(git rev-parse --short HEAD)"
+            echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.check-updates.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.check-updates.outputs.branch_name }}
+          title: 'chore: icon updates'
+          body: |
+            Automated icon updates from RemixIcon repository.
+
+            This PR was created automatically by the `icon-updates.yml` workflow.
+          commit-message: 'chore: icon updates'
+          delete-branch: true
