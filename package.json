@@ -7,10 +7,12 @@
 	"scripts": {
 		"dev": "pnpm -r --parallel dev",
 		"build": "pnpm -r build",
+		"build:packages": "pnpm -parallel --filter './packages/*' build",
 		"check": "pnpm -r check",
-		"prepack": "pnpm -r prepack",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"ci:release": "pnpm build && changeset publish",
+		"postinstall": "pnpm build:packages"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.1",
