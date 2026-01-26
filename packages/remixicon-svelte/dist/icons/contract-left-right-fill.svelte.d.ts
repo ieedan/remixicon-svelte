@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const ContractLeftRightFill: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type ContractLeftRightFill = ReturnType<typeof ContractLeftRightFill>;
+export default ContractLeftRightFill;

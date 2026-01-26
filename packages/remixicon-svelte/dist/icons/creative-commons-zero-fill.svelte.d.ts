@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const CreativeCommonsZeroFill: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type CreativeCommonsZeroFill = ReturnType<typeof CreativeCommonsZeroFill>;
+export default CreativeCommonsZeroFill;

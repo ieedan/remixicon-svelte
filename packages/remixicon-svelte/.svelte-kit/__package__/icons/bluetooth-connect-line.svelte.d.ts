@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const BluetoothConnectLine: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type BluetoothConnectLine = ReturnType<typeof BluetoothConnectLine>;
+export default BluetoothConnectLine;

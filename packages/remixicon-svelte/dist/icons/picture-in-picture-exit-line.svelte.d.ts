@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const PictureInPictureExitLine: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type PictureInPictureExitLine = ReturnType<typeof PictureInPictureExitLine>;
+export default PictureInPictureExitLine;

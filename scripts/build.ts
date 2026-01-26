@@ -19,7 +19,7 @@ async function main() {
 
 		const component = createIconComponent(iconName, path);
 
-        const iconPath = `icons/${iconName}.svelte`;
+		const iconPath = `icons/${iconName}.svelte`;
 
 		fs.writeFileSync(`packages/remixicon-svelte/src/lib/${iconPath}`, component);
 

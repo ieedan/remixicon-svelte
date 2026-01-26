@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const IncreaseDecreaseFill: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type IncreaseDecreaseFill = ReturnType<typeof IncreaseDecreaseFill>;
+export default IncreaseDecreaseFill;

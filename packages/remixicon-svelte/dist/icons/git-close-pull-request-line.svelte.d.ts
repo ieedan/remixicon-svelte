@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const GitClosePullRequestLine: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type GitClosePullRequestLine = ReturnType<typeof GitClosePullRequestLine>;
+export default GitClosePullRequestLine;

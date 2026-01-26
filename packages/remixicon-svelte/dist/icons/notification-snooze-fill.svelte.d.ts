@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const NotificationSnoozeFill: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type NotificationSnoozeFill = ReturnType<typeof NotificationSnoozeFill>;
+export default NotificationSnoozeFill;

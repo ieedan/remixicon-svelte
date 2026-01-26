@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const ArrowRightDownBoxFill: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type ArrowRightDownBoxFill = ReturnType<typeof ArrowRightDownBoxFill>;
+export default ArrowRightDownBoxFill;

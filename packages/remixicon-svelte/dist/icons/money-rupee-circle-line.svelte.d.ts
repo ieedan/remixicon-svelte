@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const MoneyRupeeCircleLine: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type MoneyRupeeCircleLine = ReturnType<typeof MoneyRupeeCircleLine>;
+export default MoneyRupeeCircleLine;

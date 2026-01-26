@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const CollapseVerticalLine: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type CollapseVerticalLine = ReturnType<typeof CollapseVerticalLine>;
+export default CollapseVerticalLine;

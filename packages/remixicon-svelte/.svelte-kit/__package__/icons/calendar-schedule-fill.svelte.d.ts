@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const CalendarScheduleFill: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type CalendarScheduleFill = ReturnType<typeof CalendarScheduleFill>;
+export default CalendarScheduleFill;

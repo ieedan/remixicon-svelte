@@ -1,8 +1,6 @@
-
 // this file is generated — do not edit it
 
-
-declare module "svelte/elements" {
+declare module 'svelte/elements' {
 	export interface HTMLAttributes<T> {
 		'data-sveltekit-keepfocus'?: true | '' | 'off' | undefined | null;
 		'data-sveltekit-noscroll'?: true | '' | 'off' | undefined | null;
@@ -24,18 +22,15 @@ declare module "svelte/elements" {
 
 export {};
 
-
-declare module "$app/types" {
+declare module '$app/types' {
 	export interface AppTypes {
-		RouteId(): "/";
-		RouteParams(): {
-			
-		};
+		RouteId(): '/';
+		RouteParams(): {};
 		LayoutParams(): {
-			"/": Record<string, never>
+			'/': Record<string, never>;
 		};
-		Pathname(): "/";
-		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/favicon.svg" | string & {};
+		Pathname(): '/';
+		ResolvedPathname(): `${'' | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
+		Asset(): '/favicon.svg' | (string & {});
 	}
 }

@@ -1,0 +1,8 @@
+import type { SVGAttributes } from 'svelte/elements';
+declare const CheckboxBlankCircleLine: import('svelte').Component<
+	SVGAttributes<SVGSVGElement>,
+	{},
+	''
+>;
+type CheckboxBlankCircleLine = ReturnType<typeof CheckboxBlankCircleLine>;
+export default CheckboxBlankCircleLine;
