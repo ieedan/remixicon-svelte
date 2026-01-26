@@ -11,7 +11,25 @@
 	let iconStyle = new PersistedState('iconStyle', 'line');
 </script>
 
-<MetaTags title="remixicon-svelte" description="RemixIcon for Svelte." />
+<MetaTags 
+	title="remixicon-svelte" 
+	description="RemixIcon for Svelte." 
+	openGraph={{ 
+		title: 'remixicon-svelte', 
+		description: 'RemixIcon for Svelte.', 
+		images: [
+			{ url: 'https://remixicon-svelte.vercel.app/og.png' }
+		]	 
+	}} 
+	twitter={{ 
+		title: 'remixicon-svelte', 
+		description: 'RemixIcon for Svelte.', 
+		creator: '@ieeeedan',
+		cardType: 'summary_large_image',
+		image: 'https://remixicon-svelte.vercel.app/og.png',
+		imageAlt: 'RemixIcon for Svelte.',
+	}} 
+/>
 
 <main class="h-dvh flex flex-col gap-4 px-4 items-center justify-center">
 	<div class="fixed top-2 right-2">
