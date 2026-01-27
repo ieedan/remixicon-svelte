@@ -1,0 +1,1 @@
+import { RiAddFill as RiAdd } from 'remixicon-svelte';

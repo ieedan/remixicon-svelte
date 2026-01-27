@@ -1,0 +1,56 @@
+{
+	"name": "vite-plugin-transform-remixicon-imports",
+	"version": "0.0.1",
+	"description": "Optimize remixicon imports in your vite project",
+	"type": "module",
+	"types": "dist/index.d.ts",
+	"module": "dist/index.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"test": "vitest"
+	},
+	"author": {
+		"name": "Aidan Bleser",
+		"url": "https://github.com/ieedan"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ieedan/remixicon-svelte.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ieedan/remixicon-svelte/issues"
+	},
+	"keywords": [
+		"remixicon",
+		"transform",
+		"imports",
+		"vite",
+		"plugin"
+	],
+	"license": "MIT",
+	"packageManager": "pnpm@10.20.0",
+	"peerDependencies": {
+		"vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
+	},
+	"devDependencies": {
+		"tsup": "^8.0.0",
+		"vite": "^7.3.1",
+		"vitest": "^4.0.18"
+	},
+	"dependencies": {
+		"@sveltejs/acorn-typescript": "^1.0.5",
+		"acorn": "^8.15.0",
+		"estree-walker": "^3.0.3",
+		"magic-string": "^0.30.19"
+	}
+}
