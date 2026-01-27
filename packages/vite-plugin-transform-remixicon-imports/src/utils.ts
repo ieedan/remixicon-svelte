@@ -27,25 +27,35 @@ function pascalToKebab(str: string): string {
 	let newStr = '';
 
 	for (let i = 0; i < str.length; i++) {
-		// is uppercase letter / number (ignoring the first)
-		if (i > 0 && (!isLetter(str[i]) || (isLetter(str[i]) && str[i].toUpperCase() === str[i]))) {
-			let l = i;
+		const char = str[i];
+		const prevChar = i > 0 ? str[i - 1] : null;
+		const nextChar = i < str.length - 1 ? str[i + 1] : null;
 
-			while (
-				l < str.length &&
-				(!isLetter(str[l]) || (isLetter(str[l]) && str[l].toUpperCase() === str[l]))
+		if (i > 0) {
+			// Add hyphen before uppercase letter if:
+			// - previous char was lowercase, OR
+			// - previous char was uppercase (handles "AB" -> "a-b" and "XMLHttp" -> "x-m-l-http")
+			if (
+				isLetter(char) &&
+				char.toUpperCase() === char &&
+				isLetter(prevChar!) &&
+				(prevChar!.toLowerCase() === prevChar! || prevChar!.toUpperCase() === prevChar!)
 			) {
-				l++;
+				newStr += '-';
 			}
+			// Add hyphen before number if previous char was a letter
+			else if (!isLetter(char) && isLetter(prevChar!)) {
+				newStr += '-';
+			}
+		}
 
-			newStr += `${str.slice(i, l - 1).toLocaleLowerCase()}-${str[l - 1].toLocaleLowerCase()}`;
-
-			i = l - 1;
-
+		// Add hyphen after number only if next char is an uppercase letter
+		if (!isLetter(char) && nextChar && isLetter(nextChar) && nextChar.toUpperCase() === nextChar) {
+			newStr += char.toLocaleLowerCase() + '-';
 			continue;
 		}
 
-		newStr += str[i].toLocaleLowerCase();
+		newStr += char.toLocaleLowerCase();
 	}
 
 	return newStr;

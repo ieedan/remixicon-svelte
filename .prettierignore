@@ -11,4 +11,6 @@ bun.lockb
 dist/
 scripts/data/
 packages/vite-plugin-transform-remixicon-imports/tests/cases/
+packages/remixicon-svelte/CHANGELOG.md
+packages/vite-plugin-transform-remixicon-imports/CHANGELOG.md
 .changeset/

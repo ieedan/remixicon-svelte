@@ -15,6 +15,7 @@ describe('normalizeName', () => {
 	it('should handle edge cases with numbers', () => {
 		expect(normalizeName('Ri24HoursFill')).toBe('24-hours-fill');
 		expect(normalizeName('Ri4kFill')).toBe('4k-fill');
+		expect(normalizeName('RiLoader2Line')).toBe('loader-2-line');
 	});
 
 	it('should handle short names', () => {
