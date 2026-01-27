@@ -17,7 +17,8 @@
 	"scripts": {
 		"build": "tsup",
 		"dev": "tsup --watch",
-		"test": "vitest"
+		"test": "vitest",
+		"check": "tsc --noEmit"
 	},
 	"author": {
 		"name": "Aidan Bleser",

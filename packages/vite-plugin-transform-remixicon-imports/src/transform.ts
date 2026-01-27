@@ -2,9 +2,19 @@ import { type Node, walk } from 'estree-walker';
 import MagicString from 'magic-string';
 import { Parser, Program } from 'acorn';
 import { tsPlugin } from '@sveltejs/acorn-typescript';
-import { normalizeName, startsWithLowercase } from './utils';
+import { normalizeName } from './utils';
 
-const REMIXICON_PACKAGE = 'remixicon-svelte';
+type RemixiconPackage = {
+	name: string;
+	/** These packages are already tree shaken and using this plugin will only break things */
+	treeShaken?: boolean;
+};
+
+const REMIXICON_PACKAGES: RemixiconPackage[] = [
+	{
+		name: 'remixicon-svelte'
+	}
+];
 
 export type Warning = {
 	message: string;
@@ -46,6 +56,7 @@ export function transform(
 	};
 
 	for (const node of program.body) {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		walk(node as any, { enter });
 	}
 
@@ -54,32 +65,37 @@ export function transform(
 
 function transformImports(
 	path: string,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	{ node, s, warn }: { node: any; s: MagicString; warn?: (warning: Warning) => void }
 ) {
-	// Check if this is an import from remixicon-svelte
-	if (!path.startsWith(REMIXICON_PACKAGE)) return;
-
-	// Skip if it's already a direct import (e.g., remixicon-svelte/icons/add-fill.svelte)
-	if (path.startsWith(`${REMIXICON_PACKAGE}/icons/`)) return;
+	const remixiconPackage = REMIXICON_PACKAGES.sort((a, b) => b.name.length - a.name.length).find(
+		(pkg) => path.startsWith(pkg.name)
+	);
+	if (!remixiconPackage) return;
+	if (remixiconPackage.treeShaken) {
+		warn?.({
+			message: `Skipping optimization of ${path} because ${remixiconPackage.name} is already a tree shaken package`,
+			meta: {
+				packageName: remixiconPackage.name,
+				path
+			}
+		});
+		return;
+	}
 
 	// Skip default imports (already optimized)
 	if (node.specifiers.length === 1 && node.specifiers[0].type === 'ImportDefaultSpecifier') {
 		return;
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const transformableImports: { original: string; new: string; node: any }[] = [];
-
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const remainingImports: { original: string; node: any }[] = [];
 
 	for (const specifier of node.specifiers) {
 		if (specifier.type === 'ImportSpecifier') {
 			if (specifier.importKind === 'type') {
-				remainingImports.push({
-					original: specifier.imported.name,
-					node: specifier
-				});
-				// camelCase imports are reserved and not transformable
-			} else if (startsWithLowercase(specifier.imported.name)) {
 				remainingImports.push({
 					original: specifier.imported.name,
 					node: specifier
@@ -101,20 +117,20 @@ function transformImports(
 		if (remainingImports.filter(({ node }) => node.importKind !== 'type').length === 0) {
 			s.replace(
 				s.slice(node.start, node.end),
-				`import type { ${remainingImports.map(({ original }) => original).join(', ')} } from '${REMIXICON_PACKAGE}';`
+				`import type { ${remainingImports.map(({ original }) => original).join(', ')} } from '${remixiconPackage.name}';`
 			);
 		} else {
 			s.replace(
 				s.slice(node.start, node.end),
 				`import { ${remainingImports
 					.map(({ original, node }) => (node.importKind === 'type' ? `type ${original}` : original))
-					.join(', ')} } from '${REMIXICON_PACKAGE}';`
+					.join(', ')} } from '${remixiconPackage.name}';`
 			);
 		}
 	}
 
 	for (const { original, new: newName } of transformableImports) {
-		const newImport = `\nimport ${newName} from '${REMIXICON_PACKAGE}/icons/${normalizeName(original)}.svelte';`;
+		const newImport = `\nimport ${newName} from '${remixiconPackage.name}/icons/${normalizeName(original)}.svelte';`;
 		s.appendLeft(node.end, newImport);
 	}
 }

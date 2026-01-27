@@ -20,3 +20,44 @@ pnpm install remixicon-svelte
 
 <RiAddFill />
 ```
+
+## Optimizing imports in Vite projects
+
+Named imports are slow to resolve in dev server. To optimize your imports, you can use the `vite-plugin-transform-remixicon-imports` plugin.
+
+```sh
+pnpm install vite-plugin-transform-remixicon-imports -D
+```
+
+```ts
+import { defineConfig } from 'vite';
+import transformRemixiconImports from 'vite-plugin-transform-remixicon-imports';
+
+export default defineConfig({
+	plugins: [, /* other framework plugins */ transformRemixiconImports()]
+});
+```
+
+**Before**
+
+```ts
+import {
+	RiAddFill,
+	RiAccountBoxFill,
+	RiHomeLine,
+	RiSettingsFill as RiSettings,
+	type RiIcon
+} from 'remixicon-svelte';
+```
+
+**After**
+
+```ts
+import type { RiIcon } from 'remixicon-svelte';
+import RiAddFill from 'remixicon-svelte/icons/add-fill.svelte';
+import RiAccountBoxFill from 'remixicon-svelte/icons/account-box-fill.svelte';
+import RiHomeLine from 'remixicon-svelte/icons/home-line.svelte';
+import RiSettings from 'remixicon-svelte/icons/settings-fill.svelte';
+```
+
+Read more about the plugin [here](https://github.com/ieedan/remixicon-svelte/tree/main/packages/vite-plugin-transform-remixicon-imports).
