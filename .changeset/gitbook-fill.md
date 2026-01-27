@@ -1,0 +1,6 @@
+---
+"remixicon-svelte": patch
+---
+
+New Icon 🎉: gitbook-fill
+        
