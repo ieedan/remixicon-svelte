@@ -11,3 +11,4 @@ bun.lockb
 dist/
 scripts/data/
 packages/vite-plugin-transform-remixicon-imports/tests/cases/
+.changeset/
