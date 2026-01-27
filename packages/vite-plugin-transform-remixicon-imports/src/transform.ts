@@ -130,7 +130,7 @@ function transformImports(
 	}
 
 	for (const { original, new: newName } of transformableImports) {
-		const newImport = `\nimport ${newName} from '${remixiconPackage.name}/icons/${normalizeName(original)}.svelte';`;
+		const newImport = `\nimport ${newName} from '${remixiconPackage.name}/icons/${normalizeName(original)}';`;
 		s.appendLeft(node.end, newImport);
 	}
 }

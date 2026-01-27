@@ -12,5 +12,5 @@
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true
 	},
-	"exclude": ["node_modules", "dist", "tests/core/cases", "tests/svelte/cases"]
+	"exclude": ["node_modules", "dist", "tests/cases", "tests/cases"]
 }

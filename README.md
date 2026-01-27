@@ -15,7 +15,7 @@ pnpm install remixicon-svelte
 <script>
 	import { RiAddFill } from 'remixicon-svelte';
 	// or
-	import RiAddFill from 'remixicon-svelte/icons/add-fill.svelte';
+	import RiAddFill from 'remixicon-svelte/icons/add-fill';
 </script>
 
 <RiAddFill />
@@ -54,10 +54,10 @@ import {
 
 ```ts
 import type { RiIcon } from 'remixicon-svelte';
-import RiAddFill from 'remixicon-svelte/icons/add-fill.svelte';
-import RiAccountBoxFill from 'remixicon-svelte/icons/account-box-fill.svelte';
-import RiHomeLine from 'remixicon-svelte/icons/home-line.svelte';
-import RiSettings from 'remixicon-svelte/icons/settings-fill.svelte';
+import RiAddFill from 'remixicon-svelte/icons/add-fill';
+import RiAccountBoxFill from 'remixicon-svelte/icons/account-box-fill';
+import RiHomeLine from 'remixicon-svelte/icons/home-line';
+import RiSettings from 'remixicon-svelte/icons/settings-fill';
 ```
 
 Read more about the plugin [here](https://github.com/ieedan/remixicon-svelte/tree/main/packages/vite-plugin-transform-remixicon-imports).

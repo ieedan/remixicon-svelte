@@ -1,2 +1,2 @@
 
-import RiAdd from 'remixicon-svelte/icons/add-fill.svelte';
+import RiAdd from 'remixicon-svelte/icons/add-fill';
