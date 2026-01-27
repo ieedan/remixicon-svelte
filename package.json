@@ -9,6 +9,7 @@
 		"build": "pnpm -r build",
 		"build:packages": "pnpm -parallel --filter './packages/*' build",
 		"check": "pnpm -r check",
+		"test": "pnpm -r test",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"ci:release": "pnpm build:packages && changeset publish",

@@ -12,7 +12,7 @@ pnpm install remixicon-svelte
 <script>
 	import { RiAddFill } from 'remixicon-svelte';
 	// or
-	import RiAddFill from 'remixicon-svelte/icons/add-fill.svelte';
+	import RiAddFill from 'remixicon-svelte/icons/add-fill';
 </script>
 
 <RiAddFill />
