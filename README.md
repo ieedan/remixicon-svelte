@@ -5,7 +5,7 @@
 [![npm version](https://flat.badgen.net/npm/v/remixicon-svelte)](https://npmjs.com/package/remixicon-svelte)
 [![npm downloads](https://flat.badgen.net/npm/dm/remixicon-svelte)](https://npmjs.com/package/remixicon-svelte)
 
-RemixIcon for Svelte.
+[RemixIcon](https://remixicon.com/) for Svelte.
 
 ```sh
 pnpm install remixicon-svelte
