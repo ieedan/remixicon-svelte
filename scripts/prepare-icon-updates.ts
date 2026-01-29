@@ -30,10 +30,14 @@ async function main() {
 
 	console.log('Changesets generated successfully');
 
+	console.log('Updating scripts/data/remixicon.glyph.json...');
+
 	fs.writeFileSync(
 		path.join(process.cwd(), './scripts/data/remixicon.glyph.json'),
-		JSON.stringify(currentIcons)
+		JSON.stringify(newIcons)
 	);
+
+	console.log('scripts/data/remixicon.glyph.json updated successfully');
 }
 
 main();

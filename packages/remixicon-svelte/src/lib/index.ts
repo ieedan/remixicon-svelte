@@ -3225,3 +3225,5 @@ export { default as RiSubredditFill } from './icons/subreddit-fill.svelte';
 export { default as RiSubredditLine } from './icons/subreddit-line.svelte';
 export { default as RiZhipuAiFill } from './icons/zhipu-ai-fill.svelte';
 export { default as RiZhipuAiLine } from './icons/zhipu-ai-line.svelte';
+export { default as RiConnectorFill } from './icons/connector-fill.svelte';
+export { default as RiConnectorLine } from './icons/connector-line.svelte';
