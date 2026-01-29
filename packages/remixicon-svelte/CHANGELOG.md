@@ -1,5 +1,14 @@
 # remixicon-svelte
 
+## 0.0.5
+### Patch Changes
+
+
+- New Icon 🎉: connector-fill ([`987f6ec`](https://github.com/ieedan/remixicon-svelte/commit/987f6ece4b96324657ff4e053d2850cb526f2d0f))
+
+
+- New Icon 🎉: connector-line ([`987f6ec`](https://github.com/ieedan/remixicon-svelte/commit/987f6ece4b96324657ff4e053d2850cb526f2d0f))
+
 ## 0.0.4
 ### Patch Changes
 
