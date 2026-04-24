@@ -1,5 +1,11 @@
 # vite-plugin-transform-remixicon-imports
 
+## 0.0.4
+### Patch Changes
+
+
+- Allow vite 8 as a peer dependency ([#15](https://github.com/ieedan/remixicon-svelte/pull/15))
+
 ## 0.0.3
 ### Patch Changes
 
