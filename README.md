@@ -34,7 +34,7 @@ import { defineConfig } from 'vite';
 import transformRemixiconImports from 'vite-plugin-transform-remixicon-imports';
 
 export default defineConfig({
-	plugins: [/* other framework plugins */, transformRemixiconImports()]
+	plugins: [, /* other framework plugins */ transformRemixiconImports()]
 });
 ```
 
